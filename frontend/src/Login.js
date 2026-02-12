@@ -41,6 +41,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
 
+  const navigate = useNavigate(); // calling navigate
+
   async function onSubmit(e) {
     e.preventDefault();
     setErr("");
