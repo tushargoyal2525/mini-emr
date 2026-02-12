@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { patientSummary } from "./api";
+import { useNavigate } from "react-router-dom"; //adding
+
+
 
 function getPatient() {
   const raw = localStorage.getItem("patient");
@@ -16,10 +19,13 @@ export default function PatientDashboard() {
   const patient = getPatient();
   const [data, setData] = useState(null);
   const [err, setErr] = useState("");
+  const navigate = useNavigate(); // adding
+
 
   useEffect(() => {
     if (!patient) {
-      window.location.href = "/";
+      //window.location.href = "/";
+      navigate("/", { replace: true }); //adding
       return;
     }
     patientSummary(patient.id)
@@ -29,7 +35,8 @@ export default function PatientDashboard() {
 
   function logout() {
     localStorage.removeItem("patient");
-    window.location.href = "/";
+    //window.location.href = "/";
+    navigate("/", { replace: true }); //adding
   }
 
   if (!patient) return null;
@@ -79,10 +86,10 @@ export default function PatientDashboard() {
 
           {/* Requirement: Drill-down links */}
           <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
-            <button onClick={() => (window.location.href = "/patient/appointments")}>
+            <button onClick={() => navigate("/patient/appointments")}>
               View all appointments (3 months)
             </button>
-            <button onClick={() => (window.location.href = "/patient/prescriptions")}>
+            <button onClick={() => navigate("/patient/prescriptions")}>
               View all prescriptions
             </button>
           </div>
