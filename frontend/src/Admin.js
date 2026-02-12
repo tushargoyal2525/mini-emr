@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { adminListUsers, adminCreateUser } from "./api";
+import { useNavigate } from "react-router-dom"; //adding
+
 
 export default function Admin() {
   // Requirement: Admin interface at /admin
@@ -9,6 +11,7 @@ export default function Admin() {
   // - New patient form (Create)
   const [users, setUsers] = useState([]);
   const [err, setErr] = useState("");
+  const navigate = useNavigate(); // adding
 
   // New patient form
   const [name, setName] = useState("");
@@ -86,7 +89,7 @@ export default function Admin() {
               <td>{u.appointments_next_7_days}</td>
               <td>{u.refills_next_7_days}</td>
               <td>
-                <button onClick={() => (window.location.href = `/admin/users/${u.id}`)}>
+                <button onClick={() => navigate(`/admin/users/${u.id}`)}>
                   View / Manage
                 </button>
               </td>
