@@ -39,5 +39,21 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+      
+    <script>
+      (function () {
+        var path = window.location.pathname;
+
+        // Only redirect if:
+        // 1. No hash present
+        // 2. User is trying to access patient/admin routes directly
+        if (!window.location.hash &&
+            (path.startsWith("/patient") ||
+             path.startsWith("/admin"))) {
+
+          window.location.replace("/#" + path);
+        }
+      })();
+    </script>
   </body>
 </html>
