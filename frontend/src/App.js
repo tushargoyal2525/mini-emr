@@ -1,7 +1,7 @@
 
-//import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //import { HashRouter as Router } from "react-router-dom";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+//import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./Login";
 import PatientDashboard from "./PatientDashboard";
@@ -12,7 +12,7 @@ import AdminUserDetail from "./AdminUserDetail";
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         {/* Requirement: Patient Portal resides at root "/" */}
         <Route path="/" element={<Login />} />
@@ -28,6 +28,6 @@ export default function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
