@@ -15,10 +15,14 @@ import {
   adminUpdatePrescription,
   adminDeletePrescription,
 } from "./api";
+import { useNavigate } from "react-router-dom";
+
 
 export default function AdminUserDetail() {
   // Requirement: Drill-down patient record; manage appointments/prescriptions (CRUD)
   const { id } = useParams();
+  const navigate = useNavigate();
+
 
   const [user, setUser] = useState(null);
   const [options, setOptions] = useState({ medications: [], dosages: [] });
@@ -170,7 +174,7 @@ export default function AdminUserDetail() {
   if (!user) {
     return (
       <div style={{ maxWidth: 900, margin: "30px auto", fontFamily: "Arial" }}>
-        <button onClick={() => (window.location.href = "/admin")}>Back</button>
+        <button onClick={() => navigate("/admin")}>Back</button>
         <p>Loading...</p>
         {err && <p style={{ color: "crimson" }}>{err}</p>}
       </div>
@@ -181,7 +185,7 @@ export default function AdminUserDetail() {
    // <div style={{ maxWidth: 1000, margin: "30px auto", fontFamily: "Arial" }}>
    <div className="page-container">
 
-      <button onClick={() => (window.location.href = "/admin")}>Back to Admin</button>
+      <button onClick={() => navigate("/admin")}>Back to Admin</button>
       <h2>Manage Patient</h2>
 
       {err && <p style={{ color: "crimson" }}>{err}</p>}
