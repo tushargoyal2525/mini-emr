@@ -1,5 +1,7 @@
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+//import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+
 import Login from "./Login";
 import PatientDashboard from "./PatientDashboard";
 import PatientAppointments from "./PatientAppointments";
