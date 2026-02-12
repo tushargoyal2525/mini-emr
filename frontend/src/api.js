@@ -1,5 +1,8 @@
 
-const BASE = "http://127.0.0.1:8000";
+//const BASE = "http://127.0.0.1:8000";
+// frontend/src/api.js
+const BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8000";
+
 
 async function handle(res) {
   if (!res.ok) {
