@@ -1,7 +1,9 @@
 
 //const BASE = "http://127.0.0.1:8000";
 // frontend/src/api.js
-const BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8000";
+//const BASE = process.env.REACT_APP_API_BASE || "http://127.0.0.1:8000";
+const BASE = "https://mini-emr-1-acb2.onrender.com";
+
 
 
 async function handle(res) {
