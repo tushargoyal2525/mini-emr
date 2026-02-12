@@ -32,6 +32,8 @@
 
 import { useState } from "react";
 import { login } from "./api";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Login() {
   // Requirement: Login form at "/" with email/password
@@ -45,7 +47,8 @@ export default function Login() {
     try {
       const u = await login(email, password);
       localStorage.setItem("patient", JSON.stringify(u));
-      window.location.href = "/patient";
+      //window.location.href = "/patient";
+      navigate("/patient", { replace: true }); // adding to fix patient routing
     } catch (ex) {
       setErr("Invalid email or password (or backend not reachable).");
     }
